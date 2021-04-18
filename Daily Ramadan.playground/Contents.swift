@@ -17,7 +17,7 @@ let cfURL = Bundle.main.url(forResource: SFRoundedFind, withExtension: "ttf")! a
 CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
 
 var view = UIView()
-var welcomeView = SuhurGame(scene: view)
+var welcomeView = MainMenu(scene: view)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = welcomeView
