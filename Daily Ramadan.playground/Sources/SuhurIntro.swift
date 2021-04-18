@@ -32,7 +32,6 @@ public class SuhurIntro: UIView {
     public init(scene: UIView) {
         super.init(frame:CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight))
         super.backgroundColor = Helper.backgroundSuhur
-        self.playBgSound()
         setupUI()
     }
     
@@ -53,7 +52,7 @@ public class SuhurIntro: UIView {
         descSuhur.text = "Suhur is time for us to wake up early morning and eat before dawn."
         descSuhur.numberOfLines = 0
         descSuhur.textColor = UIColor.black
-        descSuhur.frame = CGRect(x: 77, y: 167, width: 649, height: 42)
+        descSuhur.frame = CGRect(x: 130, y: 167, width: 649, height: 42)
         descSuhur.font = UIFont(name: SFRounded, size: 18)
         self.addSubview(descSuhur)
         

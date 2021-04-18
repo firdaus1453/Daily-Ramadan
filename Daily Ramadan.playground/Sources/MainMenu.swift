@@ -45,7 +45,7 @@ public class MainMenu: UIView {
         startButton.setTitle("Start", for: .normal)
         startButton.backgroundColor = UIColor.gray
         startButton.frame = CGRect(x: 311, y: 300, width: 178, height: 62)
-        startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 36)
+        startButton.titleLabel?.font = UIFont(name: "SF Pro Rounded", size: 36)
         startButton.layer.cornerRadius = 10.0
         startButton.backgroundColor = Helper.colorButton
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)

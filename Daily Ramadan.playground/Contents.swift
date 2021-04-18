@@ -1,12 +1,12 @@
 /*:
  # Hello There 🙌🏻
-
+ 
  Hope you're safe and doing great for this special month.
 
- This playground is designed and developed to inform users about what activity do if we fasting in Ramadhan, from dawn to sunset, so that we can find out the experiences of our friends who are fasting.
+ More than 1.5 billion Muslims from around the world doing fasting, in April 2021, through this game I would like to provide information about how the experiences of people who fast in the month of Ramadan and I hope we can know each other better for more respect and love ❤️.
 
- There are 3 session time, with game for select what activity we must do per each session time. Select activity with high score for you complete fasting with awesome.
-*/
+ In this game there will be 3 sessions according to the daily routine taught in Islam, each session the player will play game about choosing what activity is good to do, the better the activity, the more score will be obtained.
+ */
 
 import UIKit
 import PlaygroundSupport
@@ -17,7 +17,7 @@ let cfURL = Bundle.main.url(forResource: SFRoundedFind, withExtension: "ttf")! a
 CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
 
 var view = UIView()
-var welcomeView = FastingIntro(scene: view)
+var welcomeView = MainMenu(scene: view)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = welcomeView

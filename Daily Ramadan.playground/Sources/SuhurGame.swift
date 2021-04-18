@@ -39,6 +39,7 @@ public class SuhurGame: UIView {
         startButton.backgroundColor = UIColor.gray
         startButton.layer.cornerRadius = 10.0
         startButton.backgroundColor = Helper.colorButton
+        startButton.titleLabel?.font = UIFont(name: "SF Pro Rounded", size: 18)
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
         return startButton
     }()
@@ -50,6 +51,7 @@ public class SuhurGame: UIView {
         startButton.backgroundColor = UIColor.gray
         startButton.layer.cornerRadius = 10.0
         startButton.backgroundColor = Helper.colorButton
+        startButton.titleLabel?.font = UIFont(name: "SF Pro Rounded", size: 18)
         startButton.addTarget(self, action: #selector(retryButtonPressed), for: .touchUpInside)
         return startButton
     }()
@@ -150,20 +152,21 @@ public class SuhurGame: UIView {
         timeLabel.text = "Time"
         timeLabel.numberOfLines = 0
         timeLabel.textColor = UIColor.black
-        timeLabel.frame = CGRect(x: 54.5, y: 34, width: 47, height: 24)
+        timeLabel.frame = CGRect(x: 104.5, y: 34, width: 47, height: 24)
         timeLabel.font = UIFont(name: SFRounded, size: 20)
         self.addSubview(timeLabel)
         
         timeBackground.image = UIImage(named: "time-background.png")
-        timeBackground.frame = CGRect(x: 50, y: 64, width: 167, height: 43)
+        timeBackground.frame = CGRect(x: 100, y: 64, width: 167, height: 43)
         timeBackground.contentMode = .scaleAspectFit
         timeBackground.alpha = 1
         self.addSubview(timeBackground)
         
-        timeValue.text = "\(gameTimeLeft)"
+        timeValue.text = "20"
         timeValue.numberOfLines = 0
         timeValue.textColor = UIColor.black
-        timeValue.frame = CGRect(x: 146, y: 74, width: 28, height: 24)
+        timeValue.textAlignment = .center
+        timeValue.frame = CGRect(x: 146 + 50, y: 74, width: 28, height: 24)
         timeValue.font = UIFont(name: SFRounded, size: 20)
         self.addSubview(timeValue)
         // Time
@@ -172,20 +175,21 @@ public class SuhurGame: UIView {
         scoreLabel.text = "Score"
         scoreLabel.numberOfLines = 0
         scoreLabel.textColor = UIColor.black
-        scoreLabel.frame = CGRect(x: 553, y: 34, width: 55, height: 24)
+        scoreLabel.frame = CGRect(x: frameWidth - 167 - 100, y: 34, width: 55, height: 24)
         scoreLabel.font = UIFont(name: SFRounded, size: 20)
         self.addSubview(scoreLabel)
         
         scoreBackground.image = UIImage(named: "score-background.png")
-        scoreBackground.frame = CGRect(x: 553, y: 64, width: 167, height: 43)
+        scoreBackground.frame = CGRect(x: frameWidth - 167 - 100, y: 64, width: 167, height: 43)
         scoreBackground.contentMode = .scaleAspectFit
         scoreBackground.alpha = 1
         self.addSubview(scoreBackground)
         
         scoreValue.text = "0"
         scoreValue.numberOfLines = 0
+        scoreValue.textAlignment = .center
         scoreValue.textColor = UIColor.black
-        scoreValue.frame = CGRect(x: 649, y: 74, width: 55, height: 24)
+        scoreValue.frame = CGRect(x: frameWidth - 167 - 55 + 35, y: 74, width: 55, height: 24)
         scoreValue.font = UIFont(name: SFRounded, size: 20)
         self.addSubview(scoreValue)
         // Score
@@ -195,7 +199,10 @@ public class SuhurGame: UIView {
     {
         coundownStartLabel.removeFromSuperview()
         gameTimeLeft -= 1
-        timeValue.text = "\(gameTimeLeft)"
+        
+        if (gameTimeLeft <= 20) {
+            timeValue.text = "\(gameTimeLeft)"
+        }
         
         if (gameTimeLeft <= 10) {
             let random = Int.random(in: 1...3)
@@ -273,8 +280,9 @@ public class SuhurGame: UIView {
     }
     
     func retryScreen() {
+        self.playBgSound()
         self.removeFromSuperview()
-        let suhurGame = SuhurGame(scene: self)
+        let suhurGame = SuhurIntro(scene: self)
         PlaygroundPage.current.liveView = suhurGame
     }
 }

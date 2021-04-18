@@ -72,7 +72,7 @@ public class FastingIntro: UIView {
         infoSuhur.text = "Tap on the object to do activity."
         infoSuhur.numberOfLines = 0
         infoSuhur.textColor = UIColor.black
-        infoSuhur.frame = CGRect(x: 202, y: 235, width: 300, height: 21)
+        infoSuhur.frame = CGRect(x: 250, y: 235, width: 300, height: 21)
         infoSuhur.font = UIFont(name: SFRounded, size: 18)
         self.addSubview(infoSuhur)
         
@@ -91,7 +91,7 @@ public class FastingIntro: UIView {
         
 //        study SECTION
         studyImage.image = UIImage(named: "study.png")
-        studyImage.frame = CGRect(x: 48, y: 345, width: 92, height: 62)
+        studyImage.frame = CGRect(x: 40, y: 345, width: 92, height: 62)
         studyImage.contentMode = .scaleAspectFit
         studyImage.alpha = 1
         self.addSubview(studyImage)
@@ -99,7 +99,7 @@ public class FastingIntro: UIView {
         studyPoint.text = "+3"
         studyPoint.numberOfLines = 0
         studyPoint.textColor = UIColor.black
-        studyPoint.frame = CGRect(x: 134, y: 362, width: 32, height: 29)
+        studyPoint.frame = CGRect(x: 126, y: 362, width: 32, height: 29)
         studyPoint.font = UIFont(name: SFRounded, size: 24)
         self.addSubview(studyPoint)
         
@@ -107,14 +107,14 @@ public class FastingIntro: UIView {
         studyTitle.textAlignment = .center
         studyTitle.numberOfLines = 0
         studyTitle.textColor = UIColor.black
-        studyTitle.frame = CGRect(x: 25.5, y: 432, width: 140, height: 38)
+        studyTitle.frame = CGRect(x: 17.5, y: 432, width: 140, height: 38)
         studyTitle.font = UIFont(name: "Arial", size: 16)
         self.addSubview(studyTitle)
 //        study SECTION
         
 //        Work SECTION
         workImage.image = UIImage(named: "work.png")
-        workImage.frame = CGRect(x: 200.5, y: 345, width: 92, height: 62)
+        workImage.frame = CGRect(x: 192.5, y: 345, width: 92, height: 62)
         workImage.contentMode = .scaleAspectFit
         workImage.alpha = 1
         self.addSubview(workImage)
@@ -122,21 +122,21 @@ public class FastingIntro: UIView {
         workPoint.text = "+2"
         workPoint.numberOfLines = 0
         workPoint.textColor = UIColor.black
-        workPoint.frame = CGRect(x: 298.5, y: 361, width: 32, height: 29)
+        workPoint.frame = CGRect(x: 290.5, y: 361, width: 32, height: 29)
         workPoint.font = UIFont(name: SFRounded, size: 24)
         self.addSubview(workPoint)
         
         workTitle.text = "Work"
         workTitle.numberOfLines = 0
         workTitle.textColor = UIColor.black
-        workTitle.frame = CGRect(x: 225, y: 437, width: 43, height: 21)
+        workTitle.frame = CGRect(x: 217, y: 437, width: 43, height: 21)
         workTitle.font = UIFont(name: "Arial", size: 18)
         self.addSubview(workTitle)
 //        Work SECTION
         
 //        exercise SECTION
         exerciseImage.image = UIImage(named: "exercise.png")
-        exerciseImage.frame = CGRect(x: 357, y: 361, width: 92, height: 36)
+        exerciseImage.frame = CGRect(x: 349, y: 361, width: 92, height: 36)
         exerciseImage.contentMode = .scaleAspectFit
         exerciseImage.alpha = 1
         self.addSubview(exerciseImage)
@@ -144,21 +144,21 @@ public class FastingIntro: UIView {
         exercisePoint.text = "+1"
         exercisePoint.numberOfLines = 0
         exercisePoint.textColor = UIColor.black
-        exercisePoint.frame = CGRect(x: 459.5, y: 361, width: 28, height: 29)
+        exercisePoint.frame = CGRect(x: 451.5, y: 361, width: 28, height: 29)
         exercisePoint.font = UIFont(name: SFRounded, size: 24)
         self.addSubview(exercisePoint)
         
         exerciseTitle.text = "Exercise"
         exerciseTitle.numberOfLines = 0
         exerciseTitle.textColor = UIColor.black
-        exerciseTitle.frame = CGRect(x: 371, y: 439, width: 75, height: 21)
+        exerciseTitle.frame = CGRect(x: 365, y: 439, width: 75, height: 21)
         exerciseTitle.font = UIFont(name: "Arial", size: 18)
         self.addSubview(exerciseTitle)
 //        exercise SECTION
         
 //        eat SECTION
         eatImage.image = UIImage(named: "eat.png")
-        eatImage.frame = CGRect(x: 514, y: 354, width: 92, height: 62)
+        eatImage.frame = CGRect(x: 506, y: 354, width: 92, height: 62)
         eatImage.contentMode = .scaleAspectFit
         eatImage.alpha = 1
         self.addSubview(eatImage)
@@ -166,21 +166,21 @@ public class FastingIntro: UIView {
         eatPoint.text = "-3"
         eatPoint.numberOfLines = 0
         eatPoint.textColor = UIColor.black
-        eatPoint.frame = CGRect(x: 616, y: 362, width: 27, height: 29)
+        eatPoint.frame = CGRect(x: 608, y: 362, width: 27, height: 29)
         eatPoint.font = UIFont(name: SFRounded, size: 24)
         self.addSubview(eatPoint)
         
         eatTitle.text = "Eat"
         eatTitle.numberOfLines = 0
         eatTitle.textColor = UIColor.black
-        eatTitle.frame = CGRect(x: 547, y: 438, width: 40, height: 21)
+        eatTitle.frame = CGRect(x: 539, y: 438, width: 40, height: 21)
         eatTitle.font = UIFont(name: "Arial", size: 18)
         self.addSubview(eatTitle)
 //        eat SECTION
         
         //        drink SECTION
         drinkImage.image = UIImage(named: "drink.png")
-        drinkImage.frame = CGRect(x: 680, y: 345, width: 39, height: 62)
+        drinkImage.frame = CGRect(x: 672, y: 345, width: 39, height: 62)
         drinkImage.contentMode = .scaleAspectFit
         drinkImage.alpha = 1
         self.addSubview(drinkImage)
@@ -188,14 +188,14 @@ public class FastingIntro: UIView {
         drinkPoint.text = "-3"
         drinkPoint.numberOfLines = 0
         drinkPoint.textColor = UIColor.black
-        drinkPoint.frame = CGRect(x: 731, y: 362, width: 33, height: 29)
+        drinkPoint.frame = CGRect(x: 723, y: 362, width: 33, height: 29)
         drinkPoint.font = UIFont(name: SFRounded, size: 24)
         self.addSubview(drinkPoint)
         
         drinkTitle.text = "Drink"
         drinkTitle.numberOfLines = 0
         drinkTitle.textColor = UIColor.black
-        drinkTitle.frame = CGRect(x: 677.5, y: 437, width: 50, height: 29)
+        drinkTitle.frame = CGRect(x: 669.5, y: 437, width: 50, height: 29)
         drinkTitle.font = UIFont(name: "Arial", size: 18)
         self.addSubview(drinkTitle)
         //        drink SECTION
