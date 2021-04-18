@@ -6,6 +6,7 @@ public struct Helper {
     static var colorSky = hexStringToUIColor(hex : "AFF4FF")
     static var colorButton = hexStringToUIColor(hex : "#00B1C6")
     static var backgroundSuhur = hexStringToUIColor(hex : "#BADAFC")
+    static var backgroundFasting = hexStringToUIColor(hex : "#FFE0AD")
 }
 
 func hexStringToUIColor (hex:String) -> UIColor {

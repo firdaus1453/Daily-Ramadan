@@ -32,6 +32,7 @@ public class SuhurIntro: UIView {
     public init(scene: UIView) {
         super.init(frame:CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight))
         super.backgroundColor = Helper.backgroundSuhur
+        self.playBgSound()
         setupUI()
     }
     
@@ -40,16 +41,8 @@ public class SuhurIntro: UIView {
     }
     
     func setupUI() {
-        let SFRoundedFind = "SF-Pro-Rounded-Bold"
         let SFRounded = "SF Pro Rounded"
-        let cfURL = Bundle.main.url(forResource: SFRoundedFind, withExtension: "ttf")! as CFURL
-        CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-        var fontNames: [[AnyObject]] = []
-        for name in UIFont.familyNames {
-           print(name)
-           fontNames.append(UIFont.fontNames(forFamilyName: name) as [AnyObject])
-        }
-        
+                
         introLabel.text = "Suhur"
         introLabel.numberOfLines = 0
         introLabel.textColor = UIColor.black
@@ -57,7 +50,7 @@ public class SuhurIntro: UIView {
         introLabel.font = UIFont(name: SFRounded, size: 70)
         self.addSubview(introLabel)
         
-        descSuhur.text = "Suhur is time for us to wake up early morning, and we eat before dawn."
+        descSuhur.text = "Suhur is time for us to wake up early morning and eat before dawn."
         descSuhur.numberOfLines = 0
         descSuhur.textColor = UIColor.black
         descSuhur.frame = CGRect(x: 77, y: 167, width: 649, height: 42)
@@ -165,6 +158,7 @@ public class SuhurIntro: UIView {
     }
 
     func nextScreen() {
+        self.stopBgSound()
         self.removeFromSuperview()
         let gameSuhur = SuhurGame(scene: self)
         PlaygroundPage.current.liveView = gameSuhur

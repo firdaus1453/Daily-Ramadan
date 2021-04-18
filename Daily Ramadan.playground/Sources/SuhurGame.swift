@@ -23,7 +23,7 @@ public class SuhurGame: UIView {
     let scoreValue = UILabel()
     
     var gameCountdown:Timer?
-    var gameTimeLeft = 20
+    var gameTimeLeft = 21
     var scoreTemp = 0
     
     var popUpContainer: UIView = {
@@ -33,14 +33,24 @@ public class SuhurGame: UIView {
     }()
     
     var buttonNext: UIButton = {
-        let startButton = UIButton(frame: CGRect(x: 333, y: 507, width: 115, height: 45))
+        let startButton = UIButton(frame: CGRect(x: 479, y: 510, width: 115, height: 45))
         startButton.contentMode = .scaleAspectFit
         startButton.setTitle("Continue", for: .normal)
         startButton.backgroundColor = UIColor.gray
-//        startButton.frame = CGRect(x: 610, y: 482, width: 115, height: 45)
         startButton.layer.cornerRadius = 10.0
         startButton.backgroundColor = Helper.colorButton
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
+        return startButton
+    }()
+    
+    var buttonRetry: UIButton = {
+        let startButton = UIButton(frame: CGRect(x: 207, y: 510, width: 115, height: 45))
+        startButton.contentMode = .scaleAspectFit
+        startButton.setTitle("Retry", for: .normal)
+        startButton.backgroundColor = UIColor.gray
+        startButton.layer.cornerRadius = 10.0
+        startButton.backgroundColor = Helper.colorButton
+        startButton.addTarget(self, action: #selector(retryButtonPressed), for: .touchUpInside)
         return startButton
     }()
     
@@ -67,8 +77,9 @@ public class SuhurGame: UIView {
         coundownStartLabel.text = "\(timeLeft)"
         coundownStartLabel.numberOfLines = 0
         coundownStartLabel.textColor = UIColor.black
-        coundownStartLabel.frame = CGRect(x: 331, y: 181, width: 137, height: 238)
+        coundownStartLabel.frame = CGRect(x: 245, y: 181, width: 300, height: 238)
         coundownStartLabel.font = UIFont(name: SFRounded, size: 200)
+        coundownStartLabel.textAlignment = .center
         self.addSubview(coundownStartLabel)
 
     }
@@ -79,8 +90,8 @@ public class SuhurGame: UIView {
         let randomNumber = Int.random(in : 0..<backgroundImages.count) // generating random number
         activityImage.image = UIImage(named: backgroundImages[randomNumber])
         
-        let generateX = Int.random(in: (100)..<(frameWidth - 100))
-        let generateY = Int.random(in: (100)..<(frameHeight - 100))
+        let generateX = Int.random(in: 100..<(frameWidth - 100))
+        let generateY = Int.random(in: 120..<(frameHeight - 100))
         
         activityImage.frame = CGRect(x: Int(generateX), y: Int(generateY), width: 69, height: 69)
         activityImage.contentMode = .scaleAspectFit
@@ -103,10 +114,13 @@ public class SuhurGame: UIView {
         
         if(gameTimeLeft > 0) {
             if tapImage?.tag == 0 {
+                self.CorrectSound()
                 scoreTemp += 3
             } else if tapImage?.tag == 1 {
+                self.CorrectSound()
                 scoreTemp += 2
             } else {
+                self.AwSound()
                 scoreTemp -= 3
             }
             scoreValue.text = "\(scoreTemp)"
@@ -117,17 +131,19 @@ public class SuhurGame: UIView {
     @objc func onTimerFires()
     {
         timeLeft -= 1
-        coundownStartLabel.text = "\(timeLeft)"
 
         if timeLeft <= 0 {
+            coundownStartLabel.text = "GO"
             startCountdown?.invalidate()
             startCountdown = nil
-            coundownStartLabel.removeFromSuperview()
             startGame()
+        } else {
+            coundownStartLabel.text = "\(timeLeft)"
         }
     }
     
     func startGame() {
+        self.playGameBgSound()
         gameCountdown = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onGameStart), userInfo: nil, repeats: true)
         
         // Time
@@ -177,6 +193,7 @@ public class SuhurGame: UIView {
     
     @objc func onGameStart()
     {
+        coundownStartLabel.removeFromSuperview()
         gameTimeLeft -= 1
         timeValue.text = "\(gameTimeLeft)"
         
@@ -190,6 +207,7 @@ public class SuhurGame: UIView {
         }
         
         if gameTimeLeft == 0 {
+           
             gameCountdown?.invalidate()
             gameCountdown = nil
             
@@ -198,6 +216,8 @@ public class SuhurGame: UIView {
     }
     
     func gameEnd(){
+        self.stopGameBgSound()
+        self.WinSound()
         titleEnd.text = "Woohoo"
         titleEnd.numberOfLines = 0
         titleEnd.textColor = UIColor.black
@@ -205,11 +225,11 @@ public class SuhurGame: UIView {
         titleEnd.font = UIFont(name: SFRounded, size: 70)
         
         descEnd.text = """
-        Good job, fajr is coming, and we enough for eat.
+        Good job, fajr is coming, enough for eat and drink, we are ready for fasting.
 
         Suhur is regarded by Islamic traditions as a benefit of the blessings in that it allows the person fasting to avoid the crankiness or the weakness caused by the fast.
         """
-        descEnd.center = self.center
+        descEnd.textAlignment = .center
         descEnd.numberOfLines = 0
         descEnd.textColor = UIColor.black
         descEnd.frame = CGRect(x: 76, y: 120, width: 649, height: 200)
@@ -217,32 +237,44 @@ public class SuhurGame: UIView {
         
         titleScoreEnd.text = "Score"
         titleScoreEnd.numberOfLines = 0
+        titleScoreEnd.textAlignment = .center
         titleScoreEnd.textColor = UIColor.black
         titleScoreEnd.frame = CGRect(x: 360, y: 363, width: 80, height: 21)
         titleScoreEnd.font = UIFont(name: SFRounded, size: 20)
         
         valueScoreEnd.text = "\(scoreTemp)"
+        valueScoreEnd.textAlignment = .center
         valueScoreEnd.numberOfLines = 0
         valueScoreEnd.textColor = UIColor.black
-        valueScoreEnd.frame = CGRect(x: 372, y: 404, width: 61, height: 30)
+        valueScoreEnd.frame = CGRect(x: 380, y: 404, width: 41, height: 21)
         valueScoreEnd.font = UIFont(name: SFRounded, size: 20)
-        
-            
+
         self.addSubview(popUpContainer)
         self.addSubview(titleEnd)
         self.addSubview(descEnd)
         self.addSubview(titleScoreEnd)
         self.addSubview(valueScoreEnd)
         self.addSubview(buttonNext)
+        self.addSubview(buttonRetry)
     }
     
     @objc func startButtonPressed(sender: UIButton) {
         nextScreen()
     }
+    
+    @objc func retryButtonPressed(sender: UIButton) {
+        retryScreen()
+    }
 
     func nextScreen() {
         self.removeFromSuperview()
-        let mainMenu = MainMenu(scene: self)
-        PlaygroundPage.current.liveView = mainMenu
+        let fastingIntro = FastingIntro(scene: self)
+        PlaygroundPage.current.liveView = fastingIntro
+    }
+    
+    func retryScreen() {
+        self.removeFromSuperview()
+        let suhurGame = SuhurGame(scene: self)
+        PlaygroundPage.current.liveView = suhurGame
     }
 }

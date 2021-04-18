@@ -5,6 +5,7 @@ var soundURI: URL?
 var audioPlayer = AVAudioPlayer()
 var bgSoundURI: URL?
 var bgAudioPlayer = AVAudioPlayer()
+var bgGameAudioPlayer = AVAudioPlayer()
 
 extension UIView {
     
@@ -19,29 +20,20 @@ extension UIView {
         }
     }
     
-    func bubbleSound() {
-        self.playSound(file: "bubble", fileExtension: "wav")
+    func CorrectSound() {
+        self.playSound(file: "CorrectSound", fileExtension: "wav")
     }
     
-    func pourSound() {
-        self.playSound(file: "pour", fileExtension: "wav")
+    func AwSound() {
+        self.playSound(file: "AwSound", fileExtension: "mp3")
     }
     
-    func putSound() {
-        self.playSound(file: "put", fileExtension: "wav")
-    }
-    
-    func bonAppetiteSound() {
-        let utterance = AVSpeechUtterance(string: "Bon appetite!")
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
-
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
+    func WinSound() {
+        self.playSound(file: "WinSound", fileExtension: "wav")
     }
     
     func playBgSound(){
-        bgSoundURI = URL(fileURLWithPath: Bundle.main.path(forResource: "PLAYFUL", ofType: "wav")!)
+        bgSoundURI = URL(fileURLWithPath: Bundle.main.path(forResource: "MainBG", ofType: "wav")!)
         do {
             guard let uri = bgSoundURI else {return}
             bgAudioPlayer = try AVAudioPlayer(contentsOf: uri)
@@ -52,7 +44,23 @@ extension UIView {
         }
     }
     
+    func playGameBgSound(){
+        bgSoundURI = URL(fileURLWithPath: Bundle.main.path(forResource: "GameBG", ofType: "wav")!)
+        do {
+            guard let uri = bgSoundURI else {return}
+            bgGameAudioPlayer = try AVAudioPlayer(contentsOf: uri)
+            bgGameAudioPlayer.numberOfLoops = -1
+            bgGameAudioPlayer.play()
+        } catch {
+            print("something went wrong")
+        }
+    }
+    
     func stopBgSound() {
         bgAudioPlayer.stop()
+    }
+    
+    func stopGameBgSound() {
+        bgGameAudioPlayer.stop()
     }
 }

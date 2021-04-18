@@ -56,8 +56,6 @@ public class MainMenu: UIView {
     }
 
     func nextScreen() {
-//        self.playBgSound()
-        
         self.removeFromSuperview()
         
         let intro = Introduction(scene: self)

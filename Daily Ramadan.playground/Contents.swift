@@ -11,8 +11,13 @@
 import UIKit
 import PlaygroundSupport
 
+
+let SFRoundedFind = "SF-Pro-Rounded-Bold"
+let cfURL = Bundle.main.url(forResource: SFRoundedFind, withExtension: "ttf")! as CFURL
+CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+
 var view = UIView()
-var welcomeView = SuhurIntro(scene: view)
+var welcomeView = FastingIntro(scene: view)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = welcomeView
