@@ -180,9 +180,16 @@ public class SuhurGame: UIView {
         gameTimeLeft -= 1
         timeValue.text = "\(gameTimeLeft)"
         
-        self.randomImage()
+        if (gameTimeLeft <= 10) {
+            let random = Int.random(in: 1...3)
+            for _ in 1...random {
+                self.randomImage()
+            }
+        } else {
+            self.randomImage()
+        }
         
-        if gameTimeLeft <= 0 {
+        if gameTimeLeft == 0 {
             gameCountdown?.invalidate()
             gameCountdown = nil
             
@@ -217,7 +224,7 @@ public class SuhurGame: UIView {
         valueScoreEnd.text = "\(scoreTemp)"
         valueScoreEnd.numberOfLines = 0
         valueScoreEnd.textColor = UIColor.black
-        valueScoreEnd.frame = CGRect(x: 378, y: 404, width: 61, height: 30)
+        valueScoreEnd.frame = CGRect(x: 372, y: 404, width: 61, height: 30)
         valueScoreEnd.font = UIFont(name: SFRounded, size: 20)
         
             
