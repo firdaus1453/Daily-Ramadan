@@ -58,18 +58,18 @@ public class FastingIntro: UIView {
         introLabel.numberOfLines = 0
         introLabel.textAlignment = .center
         introLabel.textColor = UIColor.black
-        introLabel.frame = CGRect(x: 283, y: 39, width: 250, height: 84)
+        introLabel.frame = CGRect(x: 280, y: 39, width: 250, height: 84)
         introLabel.font = UIFont(name: SFRounded, size: 70)
         self.addSubview(introLabel)
         
-        descSuhur.text = "We are now fasting, don't eat and drink, but we must do usefull activity."
+        descSuhur.text = "We are now fasting, don't eat and drink, but we must do useful activity."
         descSuhur.numberOfLines = 0
         descSuhur.textColor = UIColor.black
         descSuhur.frame = CGRect(x: 120, y: 167, width: 680, height: 42)
         descSuhur.font = UIFont(name: SFRounded, size: 18)
         self.addSubview(descSuhur)
         
-        infoSuhur.text = "Tap on the object to do activity."
+        infoSuhur.text = "Tap on the object to do activity"
         infoSuhur.numberOfLines = 0
         infoSuhur.textColor = UIColor.black
         infoSuhur.frame = CGRect(x: 250, y: 235, width: 300, height: 21)
@@ -103,11 +103,11 @@ public class FastingIntro: UIView {
         studyPoint.font = UIFont(name: SFRounded, size: 24)
         self.addSubview(studyPoint)
         
-        studyTitle.text = "Make Swift\nStudent Challange"
+        studyTitle.text = "Building App for\nSwift Student Challenge"
         studyTitle.textAlignment = .center
         studyTitle.numberOfLines = 0
         studyTitle.textColor = UIColor.black
-        studyTitle.frame = CGRect(x: 17.5, y: 432, width: 140, height: 38)
+        studyTitle.frame = CGRect(x: 17.5, y: 428, width: 140, height: 70)
         studyTitle.font = UIFont(name: "Arial", size: 16)
         self.addSubview(studyTitle)
 //        study SECTION

@@ -38,10 +38,22 @@ public class Introduction: UIView {
         """
         introLabel.numberOfLines = 0
         introLabel.textColor = UIColor.black
-        introLabel.frame = CGRect(x: 75, y: 150, width: 650, height: 300)
-        introLabel.font = UIFont(name: "Arial", size: 15)
+        introLabel.frame = CGRect(x: 75, y: 50, width: 650, height: 400)
+        introLabel.font = UIFont(name: "Arial", size: 24)
         self.addSubview(introLabel)
         
+        
+        startButton.frame = CGRect(x: 610, y: 600, width: 115, height: 45)
+        UIView.animate(withDuration: 1,
+             delay: 0,
+             usingSpringWithDamping: 0.5,
+             initialSpringVelocity: 0.5,
+             animations: {
+                self.setupButtonStart()
+                    })
+    }
+    
+    func setupButtonStart(){
         startButton.setTitle("Continue", for: .normal)
         startButton.backgroundColor = UIColor.gray
         startButton.frame = CGRect(x: 610, y: 482, width: 115, height: 45)
@@ -50,10 +62,20 @@ public class Introduction: UIView {
         startButton.backgroundColor = Helper.colorButton
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
         self.addSubview(startButton)
-
     }
     @objc func startButtonPressed(sender: UIButton) {
-        nextScreen()
+        
+        UIView.animate(withDuration: 1,
+             delay: 0,
+             usingSpringWithDamping: 0.5,
+             initialSpringVelocity: 0.5,
+             animations: {
+                self.startButton.frame = CGRect(x: 785, y: 482, width: 115, height: 45)
+                    }, completion: {
+                        (value: Bool) in
+                        self.nextScreen()
+                })
+        
     }
 
     func nextScreen() {
