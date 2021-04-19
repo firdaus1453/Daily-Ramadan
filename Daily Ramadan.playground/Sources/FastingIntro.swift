@@ -178,7 +178,7 @@ public class FastingIntro: UIView {
         self.addSubview(eatTitle)
 //        eat SECTION
         
-        //        drink SECTION
+//        drink SECTION
         drinkImage.image = UIImage(named: "drink.png")
         drinkImage.frame = CGRect(x: 672, y: 345, width: 39, height: 62)
         drinkImage.contentMode = .scaleAspectFit
@@ -198,7 +198,7 @@ public class FastingIntro: UIView {
         drinkTitle.frame = CGRect(x: 669.5, y: 437, width: 50, height: 29)
         drinkTitle.font = UIFont(name: "Arial", size: 18)
         self.addSubview(drinkTitle)
-        //        drink SECTION
+//        drink SECTION
 
         startButton.setTitle("Play", for: .normal)
         startButton.backgroundColor = UIColor.gray

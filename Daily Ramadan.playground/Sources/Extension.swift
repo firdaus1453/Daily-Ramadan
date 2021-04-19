@@ -25,7 +25,7 @@ extension UIView {
     }
     
     func AwSound() {
-        self.playSound(file: "AwSound", fileExtension: "mp3")
+        self.playSound(file: "AwSound", fileExtension: "wav")
     }
     
     func WinSound() {

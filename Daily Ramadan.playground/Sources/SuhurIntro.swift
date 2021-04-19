@@ -27,8 +27,6 @@ public class SuhurIntro: UIView {
     let sleepPoint = UILabel()
     let sleepTitle = UILabel()
     
-    
-    
     public init(scene: UIView) {
         super.init(frame:CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight))
         super.backgroundColor = Helper.backgroundSuhur

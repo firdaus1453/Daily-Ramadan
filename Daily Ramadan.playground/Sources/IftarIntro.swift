@@ -54,6 +54,7 @@ public class IftarIntro: UIView {
         
         descSuhur.text = "Iftar is time for us to end daily Ramadan fast at sunset, we can eat and drink now and don't forget to eat Date(Kurma) first ☺️"
         descSuhur.numberOfLines = 0
+        descSuhur.textAlignment = .center
         descSuhur.textColor = UIColor.black
         descSuhur.frame = CGRect(x: 76, y: 140, width: 649, height: 70)
         descSuhur.font = UIFont(name: SFRounded, size: 18)

@@ -32,4 +32,10 @@ func hexStringToUIColor (hex:String) -> UIColor {
     )
 }
 
+public func setFont() {
+    let SFRoundedFind = "SF-Pro-Rounded-Bold"
+    let cfURL = Bundle.main.url(forResource: SFRoundedFind, withExtension: "ttf")! as CFURL
+    CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
+}
+
 

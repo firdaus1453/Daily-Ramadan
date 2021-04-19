@@ -11,7 +11,7 @@ public class SuhurGame: UIView {
     
     let SFRounded = "SF Pro Rounded"
     
-    let coundownStartLabel = UILabel()
+    let countdownStartLabel = UILabel()
     var startCountdown:Timer?
     var timeLeft = 3
     
@@ -23,7 +23,7 @@ public class SuhurGame: UIView {
     let scoreValue = UILabel()
     
     var gameCountdown:Timer?
-    var gameTimeLeft = 21
+    var gameTimeLeft = 20
     var scoreTemp = 0
     
     var popUpContainer: UIView = {
@@ -76,13 +76,13 @@ public class SuhurGame: UIView {
         
         startCountdown = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         
-        coundownStartLabel.text = "\(timeLeft)"
-        coundownStartLabel.numberOfLines = 0
-        coundownStartLabel.textColor = UIColor.black
-        coundownStartLabel.frame = CGRect(x: 245, y: 181, width: 300, height: 238)
-        coundownStartLabel.font = UIFont(name: SFRounded, size: 200)
-        coundownStartLabel.textAlignment = .center
-        self.addSubview(coundownStartLabel)
+        countdownStartLabel.text = "\(timeLeft)"
+        countdownStartLabel.numberOfLines = 0
+        countdownStartLabel.textColor = UIColor.black
+        countdownStartLabel.frame = CGRect(x: 245, y: 181, width: 300, height: 238)
+        countdownStartLabel.font = UIFont(name: SFRounded, size: 200)
+        countdownStartLabel.textAlignment = .center
+        self.addSubview(countdownStartLabel)
 
     }
     
@@ -134,19 +134,22 @@ public class SuhurGame: UIView {
     {
         timeLeft -= 1
 
-        if timeLeft <= 0 {
-            coundownStartLabel.text = "GO"
+        if timeLeft < 0 {
             startCountdown?.invalidate()
             startCountdown = nil
             startGame()
-        } else {
-            coundownStartLabel.text = "\(timeLeft)"
+        } else if timeLeft == 0 {
+            countdownStartLabel.text = "GO"
+        } else if timeLeft > 0 {
+            countdownStartLabel.text = "\(timeLeft)"
         }
     }
     
     func startGame() {
         self.playGameBgSound()
         gameCountdown = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onGameStart), userInfo: nil, repeats: true)
+        countdownStartLabel.removeFromSuperview()
+        self.randomImage()
         
         timeLabel.frame = CGRect(x: 104.5, y: -84, width: 47, height: 24)
         timeBackground.frame = CGRect(x: 100, y: -84, width: 167, height: 43)
@@ -156,13 +159,16 @@ public class SuhurGame: UIView {
         scoreBackground.frame = CGRect(x: frameWidth - 167 - 100, y: -84, width: 167, height: 43)
         scoreValue.frame = CGRect(x: frameWidth - 167 - 55 + 35, y: -84, width: 55, height: 24)
         
-        UIView.animate(withDuration: 1,
+        UIView.animate(withDuration: 0.5,
              delay: 0,
              usingSpringWithDamping: 0.5,
              initialSpringVelocity: 0.5,
              animations: {
                 self.setupScoreAndTime()
-                    })
+             }, completion:{
+                (value: Bool) in
+                
+             })
     }
     
     func setupScoreAndTime(){
@@ -216,7 +222,6 @@ public class SuhurGame: UIView {
     
     @objc func onGameStart()
     {
-        coundownStartLabel.removeFromSuperview()
         gameTimeLeft -= 1
         
         if (gameTimeLeft <= 20) {
@@ -232,7 +237,7 @@ public class SuhurGame: UIView {
             self.randomImage()
         }
         
-        if gameTimeLeft <= 0 {
+        if gameTimeLeft < 0 {
            
             gameCountdown?.invalidate()
             gameCountdown = nil
