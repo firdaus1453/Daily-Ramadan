@@ -54,7 +54,7 @@ public class SuhurIntro: UIView {
         descSuhur.font = UIFont(name: SFRounded, size: 18)
         self.addSubview(descSuhur)
         
-        infoSuhur.text = "Tap on the object to do activity"
+        infoSuhur.text = "Click on the object to do activity"
         infoSuhur.numberOfLines = 0
         infoSuhur.textColor = UIColor.black
         infoSuhur.frame = CGRect(x: 202, y: 235, width: 300, height: 21)
@@ -67,10 +67,10 @@ public class SuhurIntro: UIView {
         infoIcon.alpha = 1
         self.addSubview(infoIcon)
         
-        pointLabel.text = "Point Activity"
+        pointLabel.text = "Points Activity Table"
         pointLabel.numberOfLines = 0
         pointLabel.textColor = UIColor.black
-        pointLabel.frame = CGRect(x: 341, y: 300, width: 118, height: 21)
+        pointLabel.frame = CGRect(x: 321, y: 320, width: 200, height: 21)
         pointLabel.font = UIFont(name: SFRounded, size: 18)
         self.addSubview(pointLabel)
         

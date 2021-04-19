@@ -13,7 +13,7 @@ import PlaygroundSupport
 
 setFont()
 var view = UIView()
-var welcomeView = MainMenu(scene: view)
+var welcomeView = FastingGame(scene: view)
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = welcomeView
